@@ -1,61 +1,55 @@
 package org.cibertec.edu.pe.Dto;
-import com.fasterxml.jackson.annotation.JsonInclude;
+public class ReclamosDto {
 
-import java.util.List;
+	private Long Id;
+	private String nombre;
+	private String reclamo;
+	
+	
+	public ReclamosDto() {
+		super();
+	}
 
-public class ReclamosDTO {
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<ReclamosDTO> reclamos;
 
-    private Long id;
-    private String nombre;
-    private String reclamo;
+	public ReclamosDto(Long id, String nombre, String reclamo) {
+		super();
+		Id = id;
+		this.nombre = nombre;
+		this.reclamo = reclamo;
+	}
 
-    // Constructors, getters, and setters
 
-    public ReclamosDTO(List<ReclamosDTO> reclamos) {
-        this.reclamos = reclamos;
-    }
+	public Long getId() {
+		return Id;
+	}
 
-    public ReclamosDTO(Long id, String nombre, String reclamo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.reclamo = reclamo;
-    }
 
-    public ReclamosDTO() {
-        super();
-    }
+	public void setId(Long id) {
+		Id = id;
+	}
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getReclamo() {
-        return reclamo;
-    }
 
-    public void setReclamo(String reclamo) {
-        this.reclamo = reclamo;
-    }
+	public String getReclamo() {
+		return reclamo;
+	}
 
-    public List<ReclamosDTO> getReclamos() {
-        return reclamos;
-    }
 
-    public void setReclamos(List<ReclamosDTO> reclamos) {
-        this.reclamos = reclamos;
-    }
+	public void setReclamo(String reclamo) {
+		this.reclamo = reclamo;
+	}
+
+
+	
+	
+	
 }
