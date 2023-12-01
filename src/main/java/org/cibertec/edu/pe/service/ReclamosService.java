@@ -2,7 +2,7 @@
 package org.cibertec.edu.pe.service;
 
 
-import org.cibertec.edu.pe.Dto.ReclamosDto;
+import org.cibertec.edu.pe.Dto.ReclamoDto;
 import org.cibertec.edu.pe.model.Reclamos;
 import org.cibertec.edu.pe.repository.ReclamoRepository;
 import org.springframework.beans.BeanUtils;
@@ -22,7 +22,7 @@ public class ReclamosService {
         this.reclamosRepository = reclamosRepository;
     }
 
-    public List<ReclamosDto> getAllReclamos() {
+    public List<ReclamoDto> getAllReclamos() {
         List<Reclamos> reclamos = reclamosRepository.findAll();
 
         return reclamos.stream()
@@ -30,17 +30,17 @@ public class ReclamosService {
                 .collect(Collectors.toList());
     }
 
-    private ReclamosDto convertToDto(Reclamos reclamo) {
-        ReclamosDto reclamoDto = new ReclamosDto();
+    private ReclamoDto convertToDto(Reclamos reclamo) {
+    	ReclamoDto reclamoDto = new ReclamoDto();
         BeanUtils.copyProperties(reclamo, reclamoDto);
         return reclamoDto;
     }
-    public ReclamosDto saveReclamo(ReclamosDto reclamoDto) {
+    public ReclamoDto saveReclamo(ReclamoDto reclamoDto) {
         Reclamos reclamo = convertToEntity(reclamoDto);
         Reclamos savedReclamo = reclamosRepository.save(reclamo);
         return convertToDto(savedReclamo);
     }
-    private Reclamos convertToEntity(ReclamosDto reclamoDto) {
+    private Reclamos convertToEntity(ReclamoDto reclamoDto) {
         Reclamos reclamo = new Reclamos();
         BeanUtils.copyProperties(reclamoDto, reclamo);
         return reclamo;

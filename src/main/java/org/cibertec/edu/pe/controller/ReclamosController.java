@@ -2,7 +2,7 @@ package org.cibertec.edu.pe.controller;
 
 import java.util.List;
 
-import org.cibertec.edu.pe.Dto.ReclamosDto;
+import org.cibertec.edu.pe.Dto.ReclamoDto;
 import org.cibertec.edu.pe.repository.ReclamoRepository;
 import org.cibertec.edu.pe.service.ReclamosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +28,15 @@ public class ReclamosController {
 	    }
 	 
 	 @PostMapping("/guardar")
-	    public ResponseEntity<ReclamosDto> guardarReclamo(@RequestBody ReclamosDto reclamoDto) {
-	        ReclamosDto savedReclamo = reclamosService.saveReclamo(reclamoDto);
+	    public ResponseEntity<ReclamoDto> guardarReclamo(@RequestBody ReclamoDto reclamoDto) {
+		 ReclamoDto savedReclamo = reclamosService.saveReclamo(reclamoDto);
 	        return ResponseEntity.ok(savedReclamo);
 	    }
 	
 
 	 @GetMapping("/listar")
-	    public ResponseEntity<List<ReclamosDto>> listarReclamos() {
-	        List<ReclamosDto> reclamosDtoList = reclamosService.getAllReclamos();
+	    public ResponseEntity<List<ReclamoDto>> listarReclamos() {
+	        List<ReclamoDto> reclamosDtoList = reclamosService.getAllReclamos();
 	       
 	if (reclamosDtoList.isEmpty()) {
 	            return ResponseEntity.noContent().build();
